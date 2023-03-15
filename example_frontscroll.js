@@ -4,6 +4,8 @@ function draw_one_frame(cur_frac) {
   let = ghostY = height / 2;
   let rollleft = map(cur_frac,0,0.5,-20,60);
   let rollright = map(cur_frac,0.5,1,60,-20);
+  let swingleft = map(cur_frac,0,0.5,20,100);
+  let swingright = map(cur_frac,0.5,1,100,20);
 
   strokeWeight(10);
   let main_points = [
@@ -29,63 +31,88 @@ function draw_one_frame(cur_frac) {
     fill(20, 10, 0);
     ellipse(width/3,cur_grid_line/1.2,width/6,width/10) //left
     ellipse(width/1.5,cur_grid_line/1.2,width/6,width/10) //right
-    arc(width/2, cur_grid_line/0.88, width/1.8, width/4.5, 0, 180, CHORD); //mouth
+    arc(width/2, cur_grid_line/0.88, width/1.8, width/3, 0, 180, CHORD); //mouth
     
-  //   // web
-  // stroke(200);
-  // line(width * .5, 0, width * .5, height * .5);
-
-  // // spider is black
-  // fill(0);
-  // stroke(0);
-
-  // // first left leg
-  // line(width * .5, height * .5, width * .25, height * .25);
-  // line(width * .25, height * .25, width * .05, height * .5);
-
-  // // first right leg
-  // line(width * .5, height * .5, width * .75, height * .25);
-  // line(width * .75, height * .25, width * .95, height * .5);
-
-  // // second left leg
-  // line(width * .5, height * .5, width * .25, height * .4);
-  // line(width * .25, height * .4, width * .05, height * .7);
-
-  // // second right leg
-  // line(width * .5, height * .5, width * .75, height * .4);
-  // line(width * .75, height * .4, width * .95, height * .7);
-
-  // // third left leg
-  // line(width * .5, height * .5, width * .25, height * .6);
-  // line(width * .25, height * .6, width * .05, height * .9);
-
-  // // third right leg
-  // line(width * .5, height * .5, width * .75, height * .6);
-  // line(width * .75, height * .6, width * .95, height * .9);
-
-  // // fourth left leg
-  // line(width * .5, height * .5, width * .25, height * .75);
-  // line(width * .25, height * .75, width * .4, height * .9);
-
-  // // fourth right leg
-  // line(width * .5, height * .5, width * .75, height * .75);
-  // line(width * .75, height * .75, width * .6, height * .9);
-
-  // // body
-  // ellipse(width * .5, height * .5, width * .15, height * .15);
-
-    translate(width/3,height/3.6);
+  stroke(200);
     fill(0, 100, 255);
     if(cur_frac <=0.5){
+      push()
+      translate(width/3,height/3.6);
       rotate(rollleft);
-      //ellipse(width/80,height/5.8,width/35,width/35) //right
       ellipse(width/30,height/5.8,width/35,width/35) //left
-    } else{
-      rotate(rollright);
-      //ellipse(width/80,height/5.8,width/35,width/35) //right
-      ellipse(width/30,height/5.8,width/35,width/35) //left
-    }
+      pop()
 
+      push()
+      translate(width/1.5,height/3.6);
+      rotate(rollleft);
+      ellipse(width/30,height/5.8,width/35,width/35) //right
+      pop()
+
+      push()
+      translate(0,0);
+      //rotate(swingleft);
+      stroke(200);
+      line(cur_frac, 0, width * 0.5, height * 0.5); // web
     
+      fill(0); // black
+      stroke(0);
+    
+      //legs
+      line(width/2, height/2, width/1.9, height/2.1);
+      line(width/1.8, height/2, width/1.9, height/2.1);
+  
+      line(width/1.8, height/1.95, width/1.9, height/2.04);
+      line(width/2, height/1.95, width/1.9, height/2.04);
+    
+      line(width/1.8, height/1.9, width/1.9, height/2);
+      line(width/2, height/1.9, width/1.9, height/2);
+
+      line(width/2.2, height/2, width/2.1, height/2.1);
+      line(width/1.988, height/2, width/2.1, height/2.1);
+  
+      ellipse(width/2, height/2, width/26, height/26); //body
+      ellipse(width/2, height/1.9, width/50, height/50); // head
+      pop()
+
+    } else{
+      push()
+      translate(width/3,height/3.6);
+      rotate(rollright);
+      ellipse(width/30,height/5.8,width/35,width/35) //left
+      pop()
+
+      push()
+      translate(width/1.5,height/3.6);
+      rotate(rollright);
+      ellipse(width/30,height/5.8,width/35,width/35) //right
+      pop()
+
+    push()
+    translate(0,0);
+    ///rotate(swingright);
+    stroke(200);
+    line(cur_frac, 0, width * 0.5, height * 0.5); // web
+    
+    fill(0); // black
+    stroke(0);
+  
+    //legs
+    line(width/2, height/2, width/1.9, height/2.1);
+    line(width/1.8, height/2, width/1.9, height/2.1);
+
+    line(width/1.8, height/1.95, width/1.9, height/2.04);
+    line(width/2, height/1.95, width/1.9, height/2.04);
+  
+    line(width/1.8, height/1.9, width/1.9, height/2);
+    line(width/2, height/1.9, width/1.9, height/2);
+
+    line(width/2.2, height/2, width/2.1, height/2.1);
+    line(width/1.988, height/2, width/2.1, height/2.1);
+    
+
+    ellipse(width/2, height/2, width/26, height/26); //body
+    ellipse(width/2, height/1.9, width/50, height/50); // head
+    pop()
    }
+  }
 }
