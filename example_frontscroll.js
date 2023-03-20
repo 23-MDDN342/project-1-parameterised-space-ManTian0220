@@ -6,6 +6,8 @@ function draw_one_frame(cur_frac) {
   let rollright = map(cur_frac,0.5,1,60,-20);
   let swingleft = map(cur_frac,0,0.5,20,100);
   let swingright = map(cur_frac,0.5,1,100,20);
+let mouth_size = map(cur_frac,0,0.5,width/2, width/3);
+let mouth_size1 = map(cur_frac,0,0.5,width/4, width/3);
 
   strokeWeight(10);
   let main_points = [
@@ -23,6 +25,7 @@ function draw_one_frame(cur_frac) {
 
    strokeWeight(2);
    stroke(0);
+
   
   for(let i=0; i<main_points.length-1; i++) {
     let cur_grid_line = map(cur_frac, 0, 1, main_points[i], main_points[i+1])
@@ -31,7 +34,6 @@ function draw_one_frame(cur_frac) {
     fill(20, 10, 0);
     ellipse(width/3,cur_grid_line/1.2,width/6,width/10) //left
     ellipse(width/1.5,cur_grid_line/1.2,width/6,width/10) //right
-    arc(width/2, cur_grid_line/0.88, width/1.8, width/3, 0, 180, CHORD); //mouth
     
   stroke(200);
     fill(0, 100, 255);
@@ -47,10 +49,15 @@ function draw_one_frame(cur_frac) {
       rotate(rollleft);
       ellipse(width/30,height/5.8,width/35,width/35) //right
       pop()
-
       push()
-      translate(0,0);
-      //rotate(swingleft);
+      noStroke();
+      fill(20, 10, 0);
+      arc(width/2, cur_grid_line/0.88, mouth_size1, mouth_size1, 0, 180, CHORD);
+      pop()
+      push()
+      translate(width/2,0);
+      scale(0.5);
+      rotate(swingleft);
       stroke(200);
       line(cur_frac, 0, width * 0.5, height * 0.5); // web
     
@@ -69,6 +76,12 @@ function draw_one_frame(cur_frac) {
 
       line(width/2.2, height/2, width/2.1, height/2.1);
       line(width/1.988, height/2, width/2.1, height/2.1);
+
+      line(width/2, height/1.95, width/2.1, height/2.03);
+      line(width/2.2, height/1.95, width/2.1, height/2.03);
+
+      line(width/2, height/1.9, width/2.1, height/1.98);
+      line(width/2.2, height/1.9, width/2.1, height/1.98);
   
       ellipse(width/2, height/2, width/26, height/26); //body
       ellipse(width/2, height/1.9, width/50, height/50); // head
@@ -86,10 +99,15 @@ function draw_one_frame(cur_frac) {
       rotate(rollright);
       ellipse(width/30,height/5.8,width/35,width/35) //right
       pop()
-
+      push()
+      noStroke();
+      fill(20, 10, 0);
+      arc(width/2, cur_grid_line/0.88, mouth_size, mouth_size, 0, 180, CHORD);
+      pop()
     push()
-    translate(0,0);
-    ///rotate(swingright);
+    translate(width/2,0);
+    scale(0.5);
+    rotate(swingright);
     stroke(200);
     line(cur_frac, 0, width * 0.5, height * 0.5); // web
     
@@ -108,6 +126,13 @@ function draw_one_frame(cur_frac) {
 
     line(width/2.2, height/2, width/2.1, height/2.1);
     line(width/1.988, height/2, width/2.1, height/2.1);
+
+    line(width/2, height/1.95, width/2.1, height/2.03);
+    line(width/2.2, height/1.95, width/2.1, height/2.03);
+
+    line(width/2, height/1.9, width/2.1, height/1.98);
+    line(width/2.2, height/1.9, width/2.1, height/1.98);
+
     
 
     ellipse(width/2, height/2, width/26, height/26); //body
@@ -115,4 +140,6 @@ function draw_one_frame(cur_frac) {
     pop()
    }
   }
+
+  
 }
