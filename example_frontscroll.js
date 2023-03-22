@@ -12,46 +12,35 @@ function draw_one_frame(cur_frac) {
   rect(0,0,width,height);
   strokeWeight(10);
 
-  push()
-  translate(width/12,height/6);;
-  scale(0.5);
-  beginShape();
+  push() // purple
+  translate(width/20,height/20);;
+  scale(1.7);
   noStroke();
   fill(152, 52, 235);
-    vertex(0,height/2);
-    vertex(width*8/24,height/2);
-    vertex(width*9/24,height*11/32);//peak1
-    vertex(width*10/24,height*13/32);
-    vertex(width*11/60,height*3/32);//peak2
-    vertex(width*12/24,height*8/32);
-    vertex(width*13/24,height*0/32);//peak3
-    vertex(width*14/24,height*10/32);
-    vertex(width*15/18,height*8/32);//peak4
-    vertex(width*16/24,height/2);
-    vertex(width*16/90,height*8/32);//peak5
-    vertex(width*16/24,height/2);
-  endShape();
+  quad(width/40, height/2, width/60, height/60, width/2, height/10, width*0.5, height/1.9);
+  quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
+  pop()
+
+  push() // red
+  translate(width/10,height/10);;
+  scale(1.5);
+  noStroke();
+  fill(152, 52, 5);
+  quad(width/40, height/2, width/60, height/60, width/2, height/10, width*0.5, height/1.9);
+  quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
   pop()
 
   push()
-  translate(width/2.4,height/6);;
-  scale(0.5);
-  beginShape();
   noStroke();
-  fill(152, 52, 235);
-    vertex(0,height/2);
-    vertex(width*8/24,height/2);
-    vertex(width*9/24,height*11/32);//peak1
-    vertex(width*10/24,height*13/32);
-    vertex(width*11/60,height*3/32);//peak2
-    vertex(width*12/24,height*8/32);
-    vertex(width*13/24,height*0/32);//peak3
-    vertex(width*14/24,height*10/32);
-    vertex(width*15/18,height*8/32);//peak4
-    vertex(width*16/24,height/2);
-    vertex(width*16/90,height*8/32);//peak5
-    vertex(width*16/24,height/2);
-  endShape();
+  fill(152, 52, 2);
+  ellipse(width/12,height/8,width/25)
+  ellipse(width*0.9,height/2,width/25)
+  fill(62, 171, 214);
+  ellipse(width/7,height/2,width/25)
+  ellipse(width*0.8,height/10,width/25)
+  fill(146, 199, 66);
+  ellipse(width/14,height/1.2,width/25)
+  ellipse(width*0.95,height/1.2,width/25)
   pop()
 
   let main_points = [
@@ -71,12 +60,12 @@ function draw_one_frame(cur_frac) {
 
     let cur_grid_line = map(cur_frac, 0, 1, main_points[i], main_points[i+1])
     
-    push()
-    strokeWeight(8);
-    stroke(125, 56, 12);
-    fill(240, 133, 34);
-    ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
-    pop()
+push()
+strokeWeight(8);
+stroke(125, 56, 12);
+fill(240, 133, 34);
+ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
+ pop()
 
     push()
     strokeWeight(4);
@@ -90,7 +79,7 @@ function draw_one_frame(cur_frac) {
 
       push()
       noStroke();
-      fill(224, 218, 18);
+      fill(255);
       translate(width/3,height/3.6);
       rotate(rollleft);
       ellipse(width/30,height/5.8,width/35,width/35) //left eyeball swing to the left
@@ -98,7 +87,7 @@ function draw_one_frame(cur_frac) {
 
       push()
       noStroke();
-      fill(224, 218, 18);
+      fill(255);
       translate(width/1.5,height/3.6);
       rotate(rollleft);
       ellipse(width/30,height/5.8,width/35,width/35) //right eyeball swing to the left
@@ -146,7 +135,7 @@ function draw_one_frame(cur_frac) {
     } else{
       push()
       noStroke();
-      fill(224, 218, 18);
+      fill(255);
       translate(width/3,height/3.6);
       rotate(rollright);
       ellipse(width/30,height/5.8,width/35,width/35) //left eyeball swing to the right
@@ -154,7 +143,7 @@ function draw_one_frame(cur_frac) {
 
       push()
       noStroke();
-      fill(224, 218, 18);
+      fill(255);
       translate(width/1.5,height/3.6);
       rotate(rollright);
       ellipse(width/30,height/5.8,width/35,width/35) //right eyeball swing to  the right
