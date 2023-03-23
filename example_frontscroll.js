@@ -1,6 +1,6 @@
 function draw_one_frame(cur_frac) {
   angleMode(DEGREES);
-  let backgroundColor = color("#d45a13");  //backgroundcolor
+  let backgroundColor = color("#10396b");  //backgroundcolor
   let rollleft = map(cur_frac,0,0.5,-20,60); //eye look left
   let rollright = map(cur_frac,0.5,1,60,-20); //eye look right
   let swingleft = map(cur_frac,0,0.5,20,100); //spider swing to the left
@@ -16,7 +16,7 @@ function draw_one_frame(cur_frac) {
   translate(width/20,height/20);;
   scale(1.7);
   noStroke();
-  fill(152, 52, 235);
+  fill(31, 92, 166);
   quad(width/40, height/2, width/60, height/60, width/2, height/10, width*0.5, height/1.9);
   quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
   pop()
@@ -25,7 +25,7 @@ function draw_one_frame(cur_frac) {
   translate(width/10,height/10);;
   scale(1.5);
   noStroke();
-  fill(152, 52, 5);
+  fill(125, 188, 255);
   quad(width/40, height/2, width/60, height/60, width/2, height/10, width*0.5, height/1.9);
   quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
   pop()
@@ -62,8 +62,8 @@ function draw_one_frame(cur_frac) {
     
 push()
 strokeWeight(8);
-stroke(125, 56, 12);
-fill(240, 133, 34);
+stroke(237, 155, 88);
+fill(255, 192, 66);
 ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
  pop()
 
@@ -104,8 +104,8 @@ ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
       scale(0.5);
       rotate(swingleft);
       strokeWeight(2);
-      stroke(22, 65, 130);
-      fill(0);
+      stroke(71, 140, 214);
+      fill(168, 232, 255);
 
       line(cur_frac, 0, width * 0.5, height * 0.5); // web
     
@@ -159,8 +159,8 @@ ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
     scale(0.5);
     rotate(swingright);
     strokeWeight(2);
-    stroke(22, 65, 130);
-    fill(0);
+    stroke(71, 140, 214);
+    fill(168, 232, 255);
 
     line(cur_frac, 0, width * 0.5, height * 0.5); // web
   
