@@ -1,6 +1,6 @@
 function draw_one_frame(cur_frac) {
   angleMode(DEGREES);
-  let backgroundColor = color("#10396b");  //backgroundcolor
+  let backgroundColor = color("#10396b");  //background color dark blue
   let rollleft = map(cur_frac,0,0.5,-20,60); //eye look left
   let rollright = map(cur_frac,0.5,1,60,-20); //eye look right
   let swingleft = map(cur_frac,0,0.5,20,100); //spider swing to the left
@@ -8,11 +8,11 @@ function draw_one_frame(cur_frac) {
   let mouth_sizeS = map(cur_frac,0,0.5,width/2, width/3); //mouth size small
   let mouth_sizeB = map(cur_frac,0,0.5,width/4, width/3); //mouth size big
 
-  fill(backgroundColor ); //background
+  fill(backgroundColor ); //background color
   rect(0,0,width,height);
   strokeWeight(10);
 
-  push() // purple
+  push() // blue
   translate(width/20,height/20);;
   scale(1.7);
   noStroke();
@@ -21,7 +21,7 @@ function draw_one_frame(cur_frac) {
   quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
   pop()
 
-  push() // red
+  push() // light blue
   translate(width/10,height/10);;
   scale(1.5);
   noStroke();
@@ -30,7 +30,7 @@ function draw_one_frame(cur_frac) {
   quad(width/90, height/4, width/20, height/80, width/2, height/20, width*0.1, height/1.8);
   pop()
 
-  push()
+  push() // dots
   noStroke();
   fill(152, 52, 2);
   ellipse(width/12,height/8,width/25)
@@ -60,20 +60,20 @@ function draw_one_frame(cur_frac) {
 
     let cur_grid_line = map(cur_frac, 0, 1, main_points[i], main_points[i+1])
     
-push()
-strokeWeight(8);
-stroke(237, 155, 88);
-fill(255, 192, 66);
-ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
- pop()
+  push()
+  strokeWeight(8);
+  stroke(237, 155, 88);
+  fill(255, 192, 66);
+  ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
+  pop()
 
-    push()
-    strokeWeight(4);
-    stroke(153, 82, 38);
-    fill(69, 18, 3);
-    ellipse(width/3,cur_grid_line/1.2,width/6,width/10) //left eye
-    ellipse(width/1.5,cur_grid_line/1.2,width/6,width/10) //right eye
-    pop()
+  push()
+  strokeWeight(4);
+  stroke(153, 82, 38);
+  fill(69, 18, 3);
+  ellipse(width/3,cur_grid_line/1.2,width/6,width/10) //left eye
+  ellipse(width/1.5,cur_grid_line/1.2,width/6,width/10) //right eye
+  pop()
     
     if(cur_frac <=0.5){
 
@@ -82,7 +82,7 @@ ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
       fill(255);
       translate(width/3,height/3.6);
       rotate(rollleft);
-      ellipse(width/30,height/5.8,width/35,width/35) //left eyeball swing to the left
+      ellipse(width/30,height/5.8,width/35,width/35) // left eyeball swing to the left
       pop()
 
       push()
@@ -96,7 +96,7 @@ ellipse(width/2,cur_grid_line,width/1.6,width/2) //head
       push()
       noStroke();
       fill(173, 57, 19);
-      arc(width/2, cur_grid_line/0.88, mouth_sizeB, mouth_sizeB, 0, 180, CHORD); //mouthsize big
+      arc(width/2, cur_grid_line/0.88, mouth_sizeB, mouth_sizeB, 0, 180, CHORD); // mouthsize big
       pop()
 
       push()
